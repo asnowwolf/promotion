@@ -1,0 +1,13 @@
+:host {
+  display: block;
+}
+
+.tips {
+  display: flex;
+  > .title {
+    flex: none;
+  }
+  > .body {
+    flex: auto;
+  }
+}

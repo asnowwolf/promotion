@@ -1,15 +1,23 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { UpdateTitleGuard } from './_core/guards/update-title.guard';
 
 const routes: Routes = [
   {
     path: '',
-    children: []
-  }
+    canActivateChild: [UpdateTitleGuard],
+    children: [
+      {
+        path: 'btdz',
+        loadChildren: './btdz/btdz.module#BtdzModule',
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
