@@ -1,0 +1,30 @@
+@import "./common";
+
+.input-group {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  > .input-group-addon {
+    flex: none;
+  }
+  > md-input-container {
+    flex: auto;
+  }
+}
+
+.btn {
+  background: none;
+  border: none;
+  border-radius: 4px;
+  &:active, &:focus {
+    outline: none;
+  }
+  &.btn-primary {
+    color: $gray-lightest;
+    background: $brand-primary;
+  }
+}
+
+.text-right {
+  text-align: right;
+}

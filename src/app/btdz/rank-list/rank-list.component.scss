@@ -1,3 +1,47 @@
+@import "../../../styles/common";
+
 :host {
   display: block;
+}
+
+/deep/ {
+  table {
+    font-size: 12px;
+    width: 100%;
+    tr {
+      &:nth-child(even) {
+        background: $gray-lighter;
+      }
+      th {
+        white-space: nowrap;
+        text-align: left;
+      }
+      th, td {
+        border-bottom: 1px solid $gray;
+        padding: 1em 0.5em;
+      }
+    }
+    > thead {
+      > tr {
+        > th {
+          &:not(:last-child) {
+            position: relative;
+            &::after {
+              position: absolute;
+              content: ' ';
+              display: block;
+              width: 1px;
+              height: 1em;
+              vertical-align: middle;
+              background: $gray;
+              right: 0;
+              top: 0;
+              bottom: 0;
+              margin: auto;
+            }
+          }
+        }
+      }
+    }
+  }
 }

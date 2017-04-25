@@ -1,22 +1,28 @@
 <form>
-  <md-input-container>
-    <img md-prefix src="./_images/person.png"/>
-    <label md-prefix>个人</label>
-    <input mdInput type="text" placeholder="请输入手机号"/>
-    <button type="button" md-suffix md-button>查询</button>
-  </md-input-container>
-  <md-input-container>
-    <img md-prefix src="./_images/area.png"/>
-    <label md-prefix>分行</label>
-    <input mdInput type="text" placeholder="请选择所属分行"/>
-    <button type="button" md-suffix md-button>查询</button>
-  </md-input-container>
-  <md-input-container>
-    <img md-prefix src="_images/team.png"/>
-    <label md-prefix>战队</label>
-    <input mdInput type="text" placeholder="请选择所属支行"/>
-    <button type="button" md-suffix md-button>查询</button>
-  </md-input-container>
+  <div class="input-group">
+    <img class="input-group-addon" src="./_images/person.png"/>
+    <label class="input-group-addon">个人</label>
+    <md-input-container>
+      <input mdInput type="text" placeholder="请输入手机号"/>
+    </md-input-container>
+    <button type="button" class="input-group-addon btn btn-primary">查询</button>
+  </div>
+  <div class="input-group">
+    <img class="input-group-addon" src="./_images/area.png"/>
+    <label class="input-group-addon">分行</label>
+    <md-input-container>
+      <input mdInput type="text" placeholder="请输入所属分行"/>
+    </md-input-container>
+    <button type="button" class="input-group-addon btn btn-primary">查询</button>
+  </div>
+  <div class="input-group">
+    <img class="input-group-addon" src="./_images/team.png"/>
+    <label class="input-group-addon">战队</label>
+    <md-input-container>
+      <input mdInput type="text" placeholder="请输入所属战队"/>
+    </md-input-container>
+    <button type="button" class="input-group-addon btn btn-primary">查询</button>
+  </div>
 </form>
 
 <div class="tips">

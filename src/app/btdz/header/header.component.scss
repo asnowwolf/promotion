@@ -1,7 +1,18 @@
+@import "../../../styles/common";
+
 :host {
   display: block;
 }
 
 img {
   height: 1em;
+  margin-right: 0.5em;
+}
+
+h2 {
+  margin: 0 0 1em;
+  text-align: center;
+  font-weight: normal;
+  font-size: 20px;
+  color: $brand-primary;
 }
