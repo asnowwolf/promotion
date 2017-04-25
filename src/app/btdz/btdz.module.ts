@@ -10,6 +10,7 @@ import { RankListComponent } from './rank-list/rank-list.component';
 import { ByPersonComponent } from './rank-list/by-person/by-person.component';
 import { ByAreaComponent } from './rank-list/by-area/by-area.component';
 import { ByTeamComponent } from './rank-list/by-team/by-team.component';
+import { BtdzApi } from './_apis/btdz.api';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { ByTeamComponent } from './rank-list/by-team/by-team.component';
     ByAreaComponent,
     ByTeamComponent,
   ],
+  providers: [BtdzApi],
 })
 export class BtdzModule {
 }

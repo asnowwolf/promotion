@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './_core/core.module';
 import { SharedModule } from './_shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { BtdzInMemoryApiService } from './btdz/mock/btdz-in-memory-api.service';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    InMemoryWebApiModule.forRoot(BtdzInMemoryApiService),
     CoreModule,
     SharedModule,
   ],
