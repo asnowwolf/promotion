@@ -8,6 +8,11 @@ const routes: Routes = [
     canActivateChild: [UpdateTitleGuard],
     children: [
       {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: '/btdz',
+      },
+      {
         path: 'btdz',
         loadChildren: './btdz/btdz.module#BtdzModule',
       },
