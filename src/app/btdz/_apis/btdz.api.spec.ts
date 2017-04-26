@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { BtdzInMemoryApiService } from '../mock/btdz-in-memory-api.service';
 
-fdescribe('BtdzApi', () => {
+describe('BtdzApi', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
