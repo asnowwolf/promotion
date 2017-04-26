@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ByTeamComponent } from './by-team.component';
+import { BtdzInMemoryApiService } from '../../mock/btdz-in-memory-api.service';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { HttpModule } from '@angular/http';
+import { BtdzApi } from '../../_apis/btdz.api';
 
 describe('ByTeamComponent', () => {
   let component: ByTeamComponent;
@@ -8,9 +12,14 @@ describe('ByTeamComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ByTeamComponent ]
+      imports: [
+        HttpModule,
+        InMemoryWebApiModule.forRoot(BtdzInMemoryApiService),
+      ],
+      declarations: [ByTeamComponent],
+      providers: [BtdzApi],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

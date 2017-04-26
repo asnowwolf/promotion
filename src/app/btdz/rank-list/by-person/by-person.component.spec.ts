@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ByPersonComponent } from './by-person.component';
+import { BtdzInMemoryApiService } from '../../mock/btdz-in-memory-api.service';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { HttpModule } from '@angular/http';
+import { BtdzApi } from '../../_apis/btdz.api';
 
 describe('ByPersonComponent', () => {
   let component: ByPersonComponent;
@@ -8,9 +12,14 @@ describe('ByPersonComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ByPersonComponent ]
+      imports: [
+        HttpModule,
+        InMemoryWebApiModule.forRoot(BtdzInMemoryApiService),
+      ],
+      declarations: [ByPersonComponent],
+      providers: [BtdzApi],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
