@@ -6,7 +6,7 @@ import { BtdzInMemoryApiService } from '../../mock/btdz-in-memory-api.service';
 import { BtdzApi } from '../../_apis/btdz.api';
 import { HttpModule } from '@angular/http';
 
-fdescribe('ByAreaComponent', () => {
+describe('ByAreaComponent', () => {
   let component: ByAreaComponent;
   let fixture: ComponentFixture<ByAreaComponent>;
 

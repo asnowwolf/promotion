@@ -1,9 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ByPersonComponent } from './by-person.component';
-import { BtdzInMemoryApiService } from '../../mock/btdz-in-memory-api.service';
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { HttpModule } from '@angular/http';
+import { BtdzStubApi } from 'app/_stub/btdz-stub-api';
 import { BtdzApi } from '../../_apis/btdz.api';
 
 describe('ByPersonComponent', () => {
@@ -12,12 +10,9 @@ describe('ByPersonComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        HttpModule,
-        InMemoryWebApiModule.forRoot(BtdzInMemoryApiService),
-      ],
+      imports: [],
       declarations: [ByPersonComponent],
-      providers: [BtdzApi],
+      providers: [{provide: BtdzApi, useClass: BtdzStubApi}],
     })
       .compileComponents();
   }));
@@ -25,10 +20,22 @@ describe('ByPersonComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ByPersonComponent);
     component = fixture.componentInstance;
+    component.ngOnInit();
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('should get bonus by person', () => {
+    expect(component.items).toEqual([
+      {
+        'bonus': 10280.00,
+        'maxBonus': 11420.00,
+        'memName': '杜王泺',
+        'rankNo': 1,
+        'teamName': '杭州分行本部',
+      },
+    ]);
   });
 });
