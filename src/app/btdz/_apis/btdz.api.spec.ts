@@ -27,8 +27,19 @@ fdescribe('BtdzApi', () => {
   });
 
   it('should query by person', async(() => {
-    api.queryByPerson().subscribe((value) => {
-      expect(value[0].rankNo).toEqual(1);
+    api.queryByPerson().subscribe((items) => {
+      expect(items[0].rankNo).toEqual(1);
+      expect(items[0].memName).toEqual('杜王泺');
+    });
+  }));
+  it('should query by team', async(() => {
+    api.queryByTeam().subscribe((items) => {
+      expect(items[0].memNum).toEqual(130);
+    });
+  }));
+  it('should query by area', async(() => {
+    api.queryByArea().subscribe((items) => {
+      expect(items[0].maxBonusSum).toBeCloseTo(236380, 0.1);
     });
   }));
 });
