@@ -25,10 +25,20 @@ describe('ByAreaComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ByAreaComponent);
     component = fixture.componentInstance;
+    component.items = [{rankNo: 1, maxBonusSum: 10000, bonusSum: 1000.13, divisionName: 'Test', fightIndex: 10}];
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('should binding properly', () => {
+    const element: HTMLElement = fixture.debugElement.nativeElement;
+    const tr = element.querySelector('tbody>tr');
+    expect(tr.querySelector('td:nth-child(1)').textContent).toEqual('1');
+    expect(tr.querySelector('td:nth-child(2)').textContent).toEqual('Test');
+    expect(tr.querySelector('td:nth-child(3)').textContent).toEqual('1,000.13');
+    expect(tr.querySelector('td:nth-child(4)').textContent).toEqual('10,000');
+    expect(tr.querySelector('td:nth-child(5)').textContent).toEqual('10');
   });
 });
