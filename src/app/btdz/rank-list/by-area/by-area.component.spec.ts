@@ -6,7 +6,7 @@ import { BtdzInMemoryApiService } from '../../mock/btdz-in-memory-api.service';
 import { BtdzApi } from '../../_apis/btdz.api';
 import { HttpModule } from '@angular/http';
 
-describe('ByAreaComponent', () => {
+fdescribe('ByAreaComponent', () => {
   let component: ByAreaComponent;
   let fixture: ComponentFixture<ByAreaComponent>;
 
@@ -25,20 +25,23 @@ describe('ByAreaComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ByAreaComponent);
     component = fixture.componentInstance;
-    component.items = [{rankNo: 1, maxBonusSum: 10000, bonusSum: 1000.13, divisionName: 'Test', fightIndex: 10}];
+    component.ngOnInit();
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('should binding properly', () => {
-    const element: HTMLElement = fixture.debugElement.nativeElement;
-    const tr = element.querySelector('tbody>tr');
-    expect(tr.querySelector('td:nth-child(1)').textContent).toEqual('1');
-    expect(tr.querySelector('td:nth-child(2)').textContent).toEqual('Test');
-    expect(tr.querySelector('td:nth-child(3)').textContent).toEqual('1,000.13');
-    expect(tr.querySelector('td:nth-child(4)').textContent).toEqual('10,000');
-    expect(tr.querySelector('td:nth-child(5)').textContent).toEqual('10');
-  });
+  it('should binding properly', async((done) => {
+    fixture.whenStable().then(() => {
+      const element: HTMLElement = fixture.debugElement.nativeElement;
+      const tr = element.querySelector('tbody>tr');
+      expect(tr.querySelector('td:nth-child(1)').textContent).toEqual('1');
+      expect(tr.querySelector('td:nth-child(2)').textContent).toEqual('Test');
+      expect(tr.querySelector('td:nth-child(3)').textContent).toEqual('1,000.13');
+      expect(tr.querySelector('td:nth-child(4)').textContent).toEqual('10,000');
+      expect(tr.querySelector('td:nth-child(5)').textContent).toEqual('10');
+      done();
+    });
+  }));
 });
