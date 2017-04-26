@@ -1,10 +1,11 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, tick } from '@angular/core/testing';
 
 import { ByAreaComponent } from './by-area.component';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { BtdzInMemoryApiService } from '../../mock/btdz-in-memory-api.service';
 import { BtdzApi } from '../../_apis/btdz.api';
 import { HttpModule } from '@angular/http';
+import { By } from '@angular/platform-browser';
 
 describe('ByAreaComponent', () => {
   let component: ByAreaComponent;
@@ -32,16 +33,17 @@ describe('ByAreaComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('should binding properly', async((done) => {
+  it('should binding properly', (done) => {
+    const element = fixture.debugElement;
     fixture.whenStable().then(() => {
-      const element: HTMLElement = fixture.debugElement.nativeElement;
-      const tr = element.querySelector('tbody>tr');
-      expect(tr.querySelector('td:nth-child(1)').textContent).toEqual('1');
-      expect(tr.querySelector('td:nth-child(2)').textContent).toEqual('Test');
-      expect(tr.querySelector('td:nth-child(3)').textContent).toEqual('1,000.13');
-      expect(tr.querySelector('td:nth-child(4)').textContent).toEqual('10,000');
-      expect(tr.querySelector('td:nth-child(5)').textContent).toEqual('10');
+      fixture.detectChanges();
+      const tds = element.queryAll(By.css('tbody>tr>td'));
+      expect(tds[0].nativeElement.textContent).toEqual('1');
+      expect(tds[1].nativeElement.textContent).toEqual('南京分行');
+      expect(tds[2].nativeElement.textContent).toEqual('217,700');
+      expect(tds[3].nativeElement.textContent).toEqual('236,380');
+      expect(tds[4].nativeElement.textContent).toEqual('228.92');
       done();
     });
-  }));
+  });
 });
