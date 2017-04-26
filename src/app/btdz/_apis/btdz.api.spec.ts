@@ -1,11 +1,13 @@
-import { TestBed, inject } from '@angular/core/testing';
+import { inject, TestBed } from '@angular/core/testing';
 
 import { BtdzApi } from './btdz.api';
+import { HttpModule } from '@angular/http';
 
-describe('BtdzApi', () => {
+fdescribe('BtdzApi', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [BtdzApi]
+      imports: [HttpModule],
+      providers: [BtdzApi],
     });
   });
 
