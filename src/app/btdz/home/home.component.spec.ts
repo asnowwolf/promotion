@@ -1,37 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
-import { HeaderComponent } from '../header/header.component';
-import { QueryFormComponent } from '../query-form/query-form.component';
-import { RankListComponent } from '../rank-list/rank-list.component';
-import { ByPersonComponent } from '../rank-list/by-person/by-person.component';
-import { ByTeamComponent } from '../rank-list/by-team/by-team.component';
-import { ByAreaComponent } from '../rank-list/by-area/by-area.component';
-import { MdButtonModule, MdCoreModule, MdInputModule, MdTabsModule } from '@angular/material';
-import { RouterModule } from '@angular/router';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
-fdescribe('HomeComponent', () => {
+describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        MdInputModule,
-        MdButtonModule,
-        MdTabsModule,
-        MdCoreModule,
-        RouterModule,
-      ],
+      imports: [],
       declarations: [
         HomeComponent,
-        HeaderComponent,
-        QueryFormComponent,
-        RankListComponent,
-        ByPersonComponent,
-        ByTeamComponent,
-        ByAreaComponent,
       ],
+      // 使用浅层测试
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   }));
 
@@ -41,7 +24,7 @@ fdescribe('HomeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create instance', () => {
     expect(component).toBeTruthy();
   });
 });
