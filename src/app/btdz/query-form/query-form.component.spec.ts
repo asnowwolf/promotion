@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { QueryFormComponent } from './query-form.component';
+import { SharedModule } from '../../_shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('QueryFormComponent', () => {
   let component: QueryFormComponent;
@@ -8,9 +10,13 @@ describe('QueryFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ QueryFormComponent ]
+      imports: [
+        BrowserAnimationsModule,
+        SharedModule,
+      ],
+      declarations: [QueryFormComponent],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
